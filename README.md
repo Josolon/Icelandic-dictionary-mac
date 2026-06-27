@@ -1,36 +1,23 @@
-# Icelandic-dictionary-mac
-Create .dictionary files for the native macOS dictionary look up function
-# 🇮🇸 macOS Icelandic Monolingual Dictionary
+# 🇮🇸 macOS Icelandic Monolingual Dictionary Builder
 
-Bring system-wide Icelandic definitions to your Mac! This project parses open-access lexicographical data from **Árnastofnun** and pairs it with the **BÍN** inflection database. 
+Bring seamless, system-wide Icelandic definitions to your Mac! 
 
-The result? You can use macOS's native **Force Click / Three-Finger Tap** "Look Up" feature on *any* inflected Icelandic word (like *hestinum*, *gleraugunum*, or *skrifuðu*) inside Safari, Pages, or Mail, and instantly see its base definition.
+This repository provides an automated build pipeline that pairs modern Icelandic definitions from **Íslensk nútímamálsorðabók (ÍNO)** with the **BÍN** inflection database. Once compiled, you can use macOS's native **Force Click / Three-Finger Tap** "Look Up" feature on *any* heavily inflected Icelandic word (like *gleraugunum*, *viðskiptanna*, or *borðuðu*) inside Safari, Pages, or Mail and instantly see its base dictionary entry.
 
 ---
 
-## 🚀 Quick Installation (For Regular Users)
+## ⚖️ Why This is a "Builder" (License Note)
 
-You do not need to run any code to use this dictionary!
+The underlying definition data provided by Árnastofnun is licensed under **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)**. 
 
-1. Go to the **[Releases](../../releases)** page of this repository and download the latest `Icelandic.dictionary.zip`.
-2. Unzip the file on your Mac.
-3. Open **Finder**, press `Cmd + Shift + G`, paste `~/Library/Dictionaries/`, and hit Enter.
-4. Drag and drop the unzipped `Icelandic.dictionary` file into that folder.
-5. Open the native **Dictionary** app on your Mac, go to **Settings** (or **Preferences**), scroll to the bottom, and check the box next to **Íslensk Orðabók** to activate it.
+Because the "NoDerivatives" (ND) clause strictly forbids the distribution of modified or converted versions of the data, **pre-compiled `.dictionary` files cannot legally be hosted here for download.** Instead, this project is a fully automated, open-source tool. It allows you to download the official data files directly from the source and compile the dictionary privately on your own Mac for your personal use.
 
 ---
 
-## 🛠️ Developer Setup & Building From Source
+## 🛠️ Prerequisites
 
-If you want to modify the parsing logic or compile the dictionary yourself, follow these steps:
+Before building, you will need a few standard developer tools on your Mac:
 
-### Prerequisites
-* A Mac running macOS with Xcode or Xcode Command Line Tools installed.
-* **Dictionary Development Kit**: Download "Additional Tools for Xcode" from the Apple Developer portal and copy the Dictionary Development Kit folder into this project.
-* Python 3.x
-
-### How to Build
-1. Clone this repository:
+1. **Xcode Command Line Tools**: Open your Terminal and run:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/mac-icelandic-dictionary.git](https://github.com/YOUR_USERNAME/mac-icelandic-dictionary.git)
-   cd mac-icelandic-dictionary
+   xcode-select --install
