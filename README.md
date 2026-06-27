@@ -1,5 +1,8 @@
 # 🇮🇸 macOS Icelandic Monolingual Dictionary Builder
 
+![Íslensk orðabók working preview](assets/preview.png)
+![Íslensk orðabók working preview](assets/preview2.png)
+
 Bring seamless, system-wide Icelandic definitions to your Mac! 
 
 This repository provides an automated build pipeline that pairs modern Icelandic definitions from **Íslensk nútímamálsorðabók (ÍNO)** with the **BÍN** inflection database. Once compiled, you can use macOS's native **Force Click / Three-Finger Tap** "Look Up" feature on *any* heavily inflected Icelandic word (like *gleraugunum*, *viðskiptanna*, or *borðuðu*) inside Safari, Pages, or Mail and instantly see its base dictionary entry.
