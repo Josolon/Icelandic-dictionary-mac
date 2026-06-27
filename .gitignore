@@ -216,3 +216,28 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python caching and environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Data directory (Crucial: do not commit the raw Árnastofnun datasets!)
+data/
+*.csv
+*.tsv
+
+# Apple Dictionary Build Artifacts
+build/
+*.dictionary/
+objects/
+derive/
+xml_examples/
