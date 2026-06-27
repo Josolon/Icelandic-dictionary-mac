@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>is</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.josolon.dictionary.IslandskaOrdabok</string>
+	<key>CFBundleName</key>
+	<string>Íslensk Orðabók</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>DCSDictionaryCopyright</key>
+	<string>Skilgreiningar: Árnastofnun (CC BY-NC-ND 4.0). Beygingarform: Miðeind ehf (BÍN handle 373).</string>
+	<key>DCSDictionaryManufacturerName</key>
+	<string>Jonatan Solon</string>
+</dict>
+</plist>
