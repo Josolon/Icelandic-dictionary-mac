@@ -79,7 +79,7 @@ class BuildDictionaryTests(unittest.TestCase):
             )
             output_path = root / "Icelandic.xml"
 
-            build_dictionary.main(
+            exit_code = build_dictionary.main(
                 [
                     "--definitions",
                     str(definitions_path),
@@ -92,6 +92,7 @@ class BuildDictionaryTests(unittest.TestCase):
                 ]
             )
 
+            self.assertEqual(exit_code, 0)
             xml_output = output_path.read_text(encoding="utf-8")
             self.assertIn('<d:index d:value="konu"/>', xml_output)
             self.assertIn("<h2>noun</h2>", xml_output)

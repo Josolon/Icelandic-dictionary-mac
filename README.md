@@ -18,7 +18,7 @@ locally, which keeps licensing and attribution under your control.
 ## Usage
 
 ```bash
-python3 /home/runner/work/Icelandic-dictionary-mac/Icelandic-dictionary-mac/build_dictionary.py \
+python3 build_dictionary.py \
   --definitions /path/to/iswiktionary.jsonl \
   --definitions-format wiktextract \
   --morphology /path/to/bin.csv \
@@ -32,6 +32,5 @@ entry in Dictionary.app.
 ## Tests
 
 ```bash
-cd /home/runner/work/Icelandic-dictionary-mac/Icelandic-dictionary-mac
 python3 -m unittest discover -v
 ```
