@@ -84,4 +84,4 @@ Because macOS caches active dictionary databases aggressively inside background 
 ## 📜 Credits & Licensing
 * **Linguistic Definitions:** Derived from the *Íslensk orðabók* dataset curated by the **Stofnun Árna Magnússonar í íslenskum fræðum** (CC BY-NC-ND 4.0).
 * **Inflection & Paradigm Arrays:** Powered by the database engine built by **Miðeind ehf** (BÍN handle 373).
-* **Toolchain Integration:** Developed and automated by Jonatan Solon.
+* **Toolchain Integration:** Developed and automated by Jónatan Sólon.
