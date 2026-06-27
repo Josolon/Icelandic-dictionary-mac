@@ -57,7 +57,7 @@ class BuildDictionaryTests(unittest.TestCase):
             self.assertIn("<h2>Beyging</h2>", xml_output)
             self.assertNotIn("not included", xml_output)
 
-    def test_reads_generic_csv_definition_and_bin_style_morphology_columns(self) -> None:
+    def test_builds_xml_with_morphology_indexes_from_csv(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             definitions_path = self.write_file(

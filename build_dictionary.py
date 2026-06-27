@@ -241,7 +241,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--output", required=True, type=Path, help="Path to write the Apple Dictionary XML")
     parser.add_argument(
         "--title",
-        default="Íslensk orðabók built from open-source data",
+        default="Íslenska orðabókin úr opnum gögnum",
         help="Dictionary subtitle shown inside each entry",
     )
     return parser.parse_args(argv)
