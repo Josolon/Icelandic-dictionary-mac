@@ -75,9 +75,9 @@ Because macOS caches active dictionary databases aggressively inside background 
 2. Open the **Dictionary** app fresh from your Applications folder or via Spotlight.
 3. Open its preference pane by navigating to **Dictionary** ➔ **Settings...** (or **Preferences...**) in the top-left menu bar.
 4. Scroll to the absolute bottom of the language checklist.
-5. Check the box next to **Íslensk Orðabók**.
+5. Check the box next to **Íslensk orðabók**.
 
-> 💡 **Pro-Tip:** You can drag and drop *Íslensk Orðabók* higher up on the checklist priority ladder if you want its definitions to take precedence over standard Apple multilingual dictionaries during system-wide lookups.
+> 💡 **Pro-Tip:** You can drag and drop *Íslensk orðabók* higher up on the checklist priority ladder if you want its definitions to take precedence over standard Apple multilingual dictionaries during system-wide lookups.
 
 ---
 
