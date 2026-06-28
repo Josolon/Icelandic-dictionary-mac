@@ -1,90 +1,133 @@
-# 🇮🇸 macOS Icelandic Monolingual Dictionary Builder
+# macOS Icelandic Dictionary Builder
 
 ![Íslensk orðabók working preview](assets/preview.png)
 ![Íslensk orðabók working preview](assets/preview2.png)
 
 Bring seamless, system-wide Icelandic definitions to your Mac! 
 
-This repository provides an automated build pipeline that pairs modern Icelandic definitions from **Íslensk nútímamálsorðabók (ÍNO)** with the **BÍN** inflection database. Once compiled, you can use macOS's native **Force Click / Three-Finger Tap** "Look Up" feature on *any* heavily inflected Icelandic word (like *gleraugunum*, *viðskiptanna*, or *borðuðu*) inside Safari, Pages, or Mail and instantly see its base dictionary entry.
+This project compiles source lexical data (INO) and morphology (BÍN) into a local Apple Dictionary bundle so lookup works with inflected forms.
 
----
+## Important License Context
 
-## ⚖️ Why This is a "Builder" (License Note)
+The lexical source data used by this builder is subject to a NoDerivatives license (CC BY-NC-ND 4.0).
 
-The underlying definition data provided by Árnastofnun is licensed under **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)**. 
+What that means in practice:
+- You should build locally for private/personal use.
+- You should not redistribute compiled dictionary bundles generated from the licensed data.
+- You should not publish modified source data dumps from the licensed dataset.
+- Always keep attribution and source references.
 
 Because the "NoDerivatives" (ND) clause strictly forbids the distribution of modified or converted versions of the data, **pre-compiled `.dictionary` files cannot legally be hosted here for download.** Instead, this project is an automated, open-source tool allowing you to compile the dictionary privately on your own Mac for your personal use.
 
----
+Read LICENSE in this repository for a project-specific summary and links.
 
-## 🛠️ Prerequisites
+## Project Structure (Consolidated)
 
-Before building, ensure you have gathered your developer tools and asset files:
+- scripts/build_dict.py: Main build pipeline (parse INO XML, enrich with BÍN morphology, emit Apple XML).
+- scripts/install_dictionary.sh: One-command installer for new users.
+- data/ino_data.xml: Local lexical source data input.
+- src/IcelandicDictionary.xml: Generated dictionary source XML (build output).
+- src/IcelandicDictionary.css: Dictionary style sheet used by build_dict.sh.
+- src/IcelandicDictionary.plist: Bundle metadata (includes display name: "Íslensk orðabók").
+- src/Makefile: Primary build/install targets for DictionaryDevelopmentKit.
+- src/objects/: Intermediate and final .dictionary build artifacts.
+- Makefile: Thin root shim that forwards to src/Makefile.
 
-1. **Xcode Command Line Tools**: Open your Terminal and run:
-   ```bash
-   xcode-select --install
-   ```
-2. **Apple Dictionary Development Kit**: Download the **Additional Tools for Xcode** package from the Apple Developer portal. 
-3. **Source Dictionary Data**: Download the official XML export file of the *Íslensk nútímamálsorðabók* from Árnastofnun. Create a folder named `data` in this project's root and save the file inside exactly as:
-   ```text
-   data/ino_data.xml
-   ```
+## Prerequisites
 
----
+1. macOS with Xcode Additional Tools installed.
+2. DictionaryDevelopmentKit available at:
+   /Applications/XcodeAdditionalTools/Utilities/DictionaryDevelopmentKit
+3. Python virtual environment with required Python package:
+   - islenska
 
-## 🚀 Step-by-Step Build Instructions
+## Setup
 
-Execute these commands sequentially within your Terminal to configure the SDK path, initialize the local environment, generate the Apple-compliant XML morphology schemas, and compile the bundle:
+From repository root:
 
-### 0. Normalize the Apple Developer Kit Path
-Apple's compiler utilities often fail if spaces exist in path directories. Use the included helper script to copy and rename your downloaded developer kit into a standardized, space-free system location:
 ```bash
-./setup_sdk.sh
-```
-
-### 1. Environment Setup & Dependency Installation
-```bash
-# Ensure you are inside the repository directory
-cd icelandic-dictionary-mac
-
-# Create and activate an isolated Python virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Install the core Icelandic BÍN morphology utility engine
+python3 -m venv .venv
+source .venv/bin/activate
 pip install islenska
 ```
 
-### 2. Generate and Build the Bundle
+## Build
+
+Generate the dictionary XML:
+
 ```bash
-# Parse the raw ÍNO data and map hundreds of thousands of grammatical syncretisms from BÍN
-python3 src/build_dict.py
+source .venv/bin/activate
+python scripts/build_dict.py
+```
 
-# Clear any legacy local build caches
-make clean
+Expected output includes:
+- Parsing INO entries
+- Morphology integration
+- Generated src/IcelandicDictionary.xml
 
-# Compile the binary assets and automatically deploy the final bundle directly into ~/Library/Dictionaries/
+## Install into Dictionary.app
+
+Beginner one-command path:
+
+```bash
+./scripts/install_dictionary.sh
+```
+
+Manual path:
+
+Build and install bundle:
+
+```bash
 make install
 ```
 
----
+This compiles and copies:
+- src/objects/IcelandicDictionary.dictionary
+into:
+- ~/Library/Dictionaries/
 
-## ⚙️ Activating the Dictionary
+Then:
+1. Open Dictionary.app.
+2. Open Settings.
+3. Enable the installed Icelandic dictionary.
+4. Restart Dictionary.app if it was already open.
 
-Because macOS caches active dictionary databases aggressively inside background system processes, you must manually toggle the registration switch inside the application to see your updates:
+## Update Workflow
 
-1. Completely quit the macOS **Dictionary** application (`Cmd + Q`).
-2. Open the **Dictionary** app fresh from your Applications folder or via Spotlight.
-3. Open its preference pane by navigating to **Dictionary** ➔ **Settings...** (or **Preferences...**) in the top-left menu bar.
-4. Scroll to the absolute bottom of the language checklist.
-5. Check the box next to **Íslensk orðabók**.
+When source data or morphology logic changes:
 
-> 💡 **Pro-Tip:** You can drag and drop *Íslensk orðabók* higher up on the checklist priority ladder if you want its definitions to take precedence over standard Apple multilingual dictionaries during system-wide lookups.
+```bash
+source .venv/bin/activate
+python scripts/build_dict.py
+make install
+```
 
----
+## Notes on Lookup Behavior
 
-## 📜 Credits & Licensing
-* **Linguistic Definitions:** Derived from the *Íslensk orðabók* dataset curated by the **Stofnun Árna Magnússonar í íslenskum fræðum** (CC BY-NC-ND 4.0).
-* **Inflection & Paradigm Arrays:** Powered by the database engine built by **Miðeind ehf** (BÍN handle 373).
-* **Toolchain Integration:** Developed and automated by Jónatan Sólon.
+- Inflected lookup is powered by BÍN-based index enrichment.
+- Verb paradigms include class-sensitive layouts (for example núþálegar and selected ri-verbs).
+- Nouns and adjectives render dedicated declension tables.
+
+## Troubleshooting
+
+- If build fails with "No module named islenska":
+  - run: `source .venv/bin/activate && pip install islenska`
+- If `build_dict.sh` is not found:
+  - verify this path exists:
+    `/Applications/XcodeAdditionalTools/Utilities/DictionaryDevelopmentKit/bin/build_dict.sh`
+  - if missing, install Xcode Additional Tools and re-run `make install`.
+- If `./scripts/install_dictionary.sh` says permission denied:
+  - run: `chmod +x scripts/install_dictionary.sh`
+- If Dictionary.app does not show updates:
+  - run: `make install`
+  - confirm "IcelandicDictionary.dictionary" exists in `~/Library/Dictionaries/`
+  - ensure the dictionary is enabled in Dictionary.app Settings
+  - restart Dictionary.app
+- If lookups seem stale:
+  - run:
+    `rm -rf ~/Library/Dictionaries/IcelandicDictionary.dictionary && make install`
+
+## Attribution
+
+Lexical source data originates from Árnastofnun/CLARIN Iceland resources.
+Please preserve source attribution and license conditions in any usage.

@@ -1,0 +1,60 @@
+/* Container for the inflection grid/table inside <details> */
+.inflection-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+    gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2px;
+    overflow: visible;
+}
+
+.inflection-container-verbs {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+.voice-section {
+    margin-bottom: 10px;
+}
+
+.verb-paradigm-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.verb-paradigm-table th,
+.verb-paradigm-table td {
+    padding: 4px 6px;
+    text-align: center;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.verb-paradigm-table th {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Individual form boxes */
+.inflection-box {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+/* Style for the grammar label (e.g., NFET, gr.) */
+.grammar-label {
+    font-size: 9px;
+    color: #666;
+    display: block;
+    margin-bottom: 2px;
+}

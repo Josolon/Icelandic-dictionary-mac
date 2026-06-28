@@ -3,16 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>is</string>
+	<string>Icelandic</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.josolon.dictionary.IslandskaOrdabok</string>
+	<string>com.apple.dictionary.IcelandicDictionary</string>
 	<key>CFBundleName</key>
+	<string>Íslensk orðabók</string>
+	<key>CFBundleDisplayName</key>
 	<string>Íslensk orðabók</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>DCSDictionaryCopyright</key>
-	<string>Skilgreiningar: Árnastofnun (CC BY-NC-ND 4.0). Beygingarform: Miðeind ehf (BÍN handle 373).</string>
+	<string>Curated by Jonatan Solon</string>
 	<key>DCSDictionaryManufacturerName</key>
 	<string>Jonatan Solon</string>
+	<key>DCSDictionaryFrontMatterWindowSize</key>
+	<string>0.5</string>
 </dict>
 </plist>

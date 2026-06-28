@@ -1,1 +1,44 @@
-CC BY-SA 4.0
+Project License Notice
+======================
+
+This repository contains:
+1) Build/tooling code in this repository (scripts, Makefile, styles, plist metadata).
+2) Dictionary source data obtained from external providers.
+
+The legal terms for (2) are not overridden by this repository.
+
+Data License Summary (Important)
+--------------------------------
+The lexical data pipeline depends on Icelandic lexical resources distributed under
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+(CC BY-NC-ND 4.0), including resources provided through CLARIN Iceland / Árnastofnun.
+
+Under CC BY-NC-ND 4.0 in this context, you must treat generated dictionary bundles
+as derivative outputs of the licensed data.
+
+Practical compliance guidance:
+- Allowed: local/private building and personal usage with attribution.
+- Not allowed: redistributing modified source data.
+- Not allowed: redistributing compiled dictionary bundles produced from ND data.
+- Not allowed: commercial use where restricted by the source license.
+
+You are responsible for verifying current terms at the original data source.
+If source licensing changes, update this notice and your distribution behavior.
+
+Upstream License Links
+----------------------
+- CC BY-NC-ND 4.0 legal code:
+  https://creativecommons.org/licenses/by-nc-nd/4.0/
+- CLARIN Iceland repository home:
+  https://repository.clarin.is/
+
+Repository Code
+---------------
+Unless otherwise stated in specific files, repository code is provided for
+building the dictionary locally and does not grant rights to redistribute
+licensed source data or derivative dictionary bundles beyond what upstream
+licenses permit.
+
+No Warranty
+-----------
+This project is provided "as is", without warranty of any kind.
