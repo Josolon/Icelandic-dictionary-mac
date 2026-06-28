@@ -32,6 +32,15 @@ Upstream License Links
 - CLARIN Iceland repository home:
   https://repository.clarin.is/
 
+Attribution Notes
+-----------------
+- Lexical source material is attributed to Stofnun Árna Magnússonar í íslenskum fræðum
+  and/or the relevant CLARIN Iceland source records.
+- Morphological enrichment is performed through BÍN access provided by the `islenska`
+  package maintained by Miðeind ehf.
+- Build orchestration, conversion, and packaging scripts in this repository are authored
+  by repository contributors.
+
 Repository Code
 ---------------
 Unless otherwise stated in specific files, repository code is provided for

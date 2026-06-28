@@ -147,5 +147,14 @@ make install
 
 ## Attribution
 
-Lexical source data originates from Árnastofnun/CLARIN Iceland resources.
-Please preserve source attribution and license conditions in any usage.
+- Lexical source data: Stofnun Árna Magnússonar í íslenskum fræðum via CLARIN Iceland (see source package metadata and terms).
+- Morphological lookup/enrichment runtime: BÍN access through the `islenska` package by Miðeind ehf.
+- Dictionary build/integration tooling in this repository: Jónatan Sólon and contributors.
+
+See CREDITS.md for a consolidated attribution list and reference links.
+
+## Release Assets Policy
+
+- Yes, you may include `scripts/install_dictionary.sh` in GitHub Releases.
+- Do not upload prebuilt `.dictionary` bundles to Releases while source data remains under ND terms.
+- If you publish source tarballs, keep LICENSE and CREDITS.md included.
