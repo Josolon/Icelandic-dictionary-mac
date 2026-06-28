@@ -6,6 +6,7 @@ REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 VENV_DIR="${REPO_ROOT}/.venv"
 PYTHON_BIN="${VENV_DIR}/bin/python"
 DDK_BIN="/Applications/XcodeAdditionalTools/Utilities/DictionaryDevelopmentKit/bin/build_dict.sh"
+DDK_BIN_SPACED="/Applications/Additional Tools for Xcode/Utilities/DictionaryDevelopmentKit/bin/build_dict.sh"
 
 echo "[1/6] Checking platform"
 if [[ "$(uname -s)" != "Darwin" ]]; then
@@ -16,7 +17,13 @@ fi
 echo "[2/6] Checking DictionaryDevelopmentKit"
 if [[ ! -x "${DDK_BIN}" ]]; then
   echo "Missing DictionaryDevelopmentKit build tool: ${DDK_BIN}"
-  echo "Install Xcode Additional Tools and try again."
+  if [[ -x "${DDK_BIN_SPACED}" ]]; then
+    echo "Detected Xcode tools in a path with spaces."
+    echo "Rename it so build tools use a space-free path:"
+    echo "  sudo mv \"/Applications/Additional Tools for Xcode\" \"/Applications/XcodeAdditionalTools\""
+  else
+    echo "Install Xcode Additional Tools and try again."
+  fi
   exit 1
 fi
 

@@ -41,6 +41,22 @@ Read LICENSE in this repository for a project-specific summary and links.
 3. Python virtual environment with required Python package:
    - islenska
 
+### Important: Remove Spaces From The Xcode Tools Folder Name
+
+If your download is in the default folder named `Additional Tools for Xcode`, rename it so paths contain no spaces.
+
+Run:
+
+```bash
+sudo mv "/Applications/Additional Tools for Xcode" "/Applications/XcodeAdditionalTools"
+```
+
+After renaming, this file should exist:
+
+```text
+/Applications/XcodeAdditionalTools/Utilities/DictionaryDevelopmentKit/bin/build_dict.sh
+```
+
 ## Setup
 
 From repository root:
@@ -115,7 +131,9 @@ make install
 - If `build_dict.sh` is not found:
   - verify this path exists:
     `/Applications/XcodeAdditionalTools/Utilities/DictionaryDevelopmentKit/bin/build_dict.sh`
-  - if missing, install Xcode Additional Tools and re-run `make install`.
+  - if you see `/Applications/Additional Tools for Xcode`, rename it with:
+    `sudo mv "/Applications/Additional Tools for Xcode" "/Applications/XcodeAdditionalTools"`
+  - then re-run `make install`.
 - If `./scripts/install_dictionary.sh` says permission denied:
   - run: `chmod +x scripts/install_dictionary.sh`
 - If Dictionary.app does not show updates:
