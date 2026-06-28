@@ -152,9 +152,3 @@ make install
 - Dictionary build/integration tooling in this repository: Jónatan Sólon and contributors.
 
 See CREDITS.md for a consolidated attribution list and reference links.
-
-## Release Assets Policy
-
-- Yes, you may include `scripts/install_dictionary.sh` in GitHub Releases.
-- Do not upload prebuilt `.dictionary` bundles to Releases while source data remains under ND terms.
-- If you publish source tarballs, keep LICENSE and CREDITS.md included.
